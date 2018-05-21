@@ -1,34 +1,27 @@
-var brickRowCount = 4;
-var brickColumnCount = 27;
-var brickWidth = 15;
-var brickHeight = 15;
-var brickPadding = 10;
-var brickOffsetTop = 25;
-var brickOffsetLeft =25;
-var dx = 5
-var dy = -5
+function Brick(x,y,w,h){
+	this.x = x
+	this.y = y
+	this.w = w
+	this.h = h
+	this.brickColor = color("whitesmoke")
+	// this.hit = false;
 
-function Brick(){
-  this.drawBrick = function(){
-    var brickArray = []
-    for(let c=0; c<brickColumnCount; c++){
-      brickArray[c] = []
-      for(let r=0;r<brickRowCount;r++){
-        brickArray[c][r] = {x: 0, y:0, status: 1}
-      }
-    }
-    for(let c=0; c<brickColumnCount; c++){
-      for(let r=0; r<brickRowCount; r++){
-        if(brickArray[c][r].status ==1){
-          var brickX = (c*(brickWidth + brickPadding))+brickOffsetLeft;
-          var brickY = (r*(brickHeight + brickPadding))+brickOffsetTop;
-          brickArray[c][r].x = brickX;
-          brickArray[c][r].y = brickY;
-          fill("white")
-          ellipse(brickX, brickY, brickWidth, brickHeight)
-        }
-      }
-    }
+	this.collide = function(obj){
+
+		this.hit = collidePointPoint(this.x, this.y, shooterX, shooterY);
+
+		if(this.hit==true){
+			this.color = color("turquoise")
+		}
+}
+this.disp = function(){
+	noStroke();
+	fill("white");
+	// this.x += 4
+	// if(this.x > width){
+	// 	this.x = -this.w;
+	//}
+	rect(this.x,this.y,this.w,this.h);
 
 }
 }

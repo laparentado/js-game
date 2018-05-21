@@ -1,10 +1,10 @@
 function Shooter(){
-  shooterX = width/2;
-	shooterY = height-30;
+  shooterX = width-10;
+	shooterY = height-200;
+	this.dia = 10
   this.drawn = function(){
-	fill("red")
-  rect(shooterX, shooterY, 32, 32)
-
+		fill("salmon")
+		ellipse(shooterX, shooterY, this.dia, this.dia)
 }
 this.move = function(direction){
 		if(direction == "ArrowLeft"){
@@ -27,5 +27,6 @@ this.move = function(direction){
 			shooterY += moving;
 		}
 	}
+
 
 }
