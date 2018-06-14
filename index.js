@@ -52,6 +52,7 @@ for(var j=0; j<bricks.length;j++){
 		if(hit==true){
 			b.w =0
 			b.h = 0
+			location.reload()
 		}
 	}
 // console.log(brickX)
